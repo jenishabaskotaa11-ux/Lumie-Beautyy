@@ -1,0 +1,6 @@
+{
+  "name": "Lumié Beauty",
+  "description": "Luxury beauty e-commerce store with curated skincare rituals, dynamic shopping filters, interactive product details, wishlist, and seamless multi-step checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
