@@ -2145,6 +2145,35 @@ function showToast(title, message, type = 'success') {
 
 // --- EVENT LISTENERS ---
 function initEventListeners() {
+  // Keep image containers and layout unchanged while recovering from failed image URLs.
+  const imageFallbacks = {
+    serum: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop',
+    skincare: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop',
+    fragrance: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop',
+    eye: 'https://images.unsplash.com/photo-1512290900672-1f02a0a8e83b?q=80&w=800&auto=format&fit=crop',
+    nature: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop',
+    default: 'https://images.unsplash.com/photo-1608248597359-00f757e17c09?q=80&w=800&auto=format&fit=crop'
+  };
+
+  // Capture image errors, including images rendered later by the shop, search, and drawers.
+  document.addEventListener('error', (event) => {
+    const img = event.target;
+    if (!(img instanceof HTMLImageElement) || img.dataset.fallbackApplied === 'true') return;
+
+    const hint = ((img.alt || '') + ' ' +
+      (img.closest('.product-card, .category-card')?.textContent || '')).toLowerCase();
+
+    let fallback = imageFallbacks.default;
+    if (/serum|niacinamide/.test(hint)) fallback = imageFallbacks.serum;
+    else if (/fragrance|perfume|candle/.test(hint)) fallback = imageFallbacks.fragrance;
+    else if (/eye|lip/.test(hint)) fallback = imageFallbacks.eye;
+    else if (/botanical|mountain|nature|journal|lab/.test(hint)) fallback = imageFallbacks.nature;
+    else if (/cream|moistur|skincare|cleanser|mist/.test(hint)) fallback = imageFallbacks.skincare;
+
+    img.dataset.fallbackApplied = 'true';
+    img.src = fallback;
+  }, true);
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeSearchModal();
