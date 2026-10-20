@@ -2150,9 +2150,9 @@ function initEventListeners() {
     serum: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop',
     skincare: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop',
     fragrance: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=800&auto=format&fit=crop',
-    eye: 'https://images.unsplash.com/photo-1512290900672-1f02a0a8e83b?q=80&w=800&auto=format&fit=crop',
-    nature: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop',
-    default: 'https://images.unsplash.com/photo-1608248597359-00f757e17c09?q=80&w=800&auto=format&fit=crop'
+    eye: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop',
+    nature: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop',
+    default: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop'
   };
 
   // Capture image errors, including images rendered later by the shop, search, and drawers.
