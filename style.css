@@ -349,6 +349,58 @@ img {
   }
 }
 
+
+/* Shop All category dropdown */
+.shop-dropdown { position: relative; }
+.dropdown-caret { font-size: 0.9em; margin-left: 0.15rem; }
+.shop-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: -0.75rem;
+  min-width: 170px;
+  padding: 0.45rem;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  z-index: 60;
+}
+.shop-dropdown:hover .shop-dropdown-menu,
+.shop-dropdown:focus-within .shop-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.shop-dropdown-menu a {
+  display: block;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.shop-dropdown-menu a:hover,
+.shop-dropdown-menu a:focus-visible {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.mobile-shop-submenu {
+  list-style: none;
+  margin: 0 0 0.4rem 0.8rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid var(--color-border);
+}
+.mobile-shop-submenu .mobile-nav-link {
+  padding: 0.55rem 0.8rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
 /* --- Mobile Navigation Drawer --- */
 .mobile-nav-drawer {
   position: fixed;
