@@ -2144,6 +2144,33 @@ function showToast(title, message, type = 'success') {
 }
 
 // --- EVENT LISTENERS ---
+function applyTheme(theme) {
+  const nextTheme = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', nextTheme);
+  const button = document.getElementById('theme-toggle-btn');
+  const icon = document.getElementById('theme-toggle-icon');
+  if (button && icon) {
+    const darkActive = nextTheme === 'dark';
+    icon.textContent = darkActive ? '☀️' : '🌙';
+    button.title = darkActive ? 'Switch to light mode' : 'Switch to dark mode';
+    button.setAttribute('aria-label', button.title);
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('lumie_theme', next); } catch (error) {}
+}
+
+// Restore the visitor's saved theme before the page is displayed.
+try {
+  applyTheme(localStorage.getItem('lumie_theme') || 'light');
+} catch (error) {
+  applyTheme('light');
+}
+
 function initEventListeners() {
   // Keep image containers and layout unchanged while recovering from failed image URLs.
   const imageFallbacks = {
