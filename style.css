@@ -351,41 +351,47 @@ img {
 
 
 /* Shop All category dropdown */
-.shop-dropdown { position: relative; }
-.dropdown-caret { font-size: 0.9em; margin-left: 0.15rem; }
-.shop-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: -0.75rem;
-  min-width: 170px;
-  padding: 0.45rem;
-  list-style: none;
-  background: var(--color-surface);
+.nav-links-desktop > li.shop-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.nav-links-desktop > li.shop-dropdown > .shop-dropdown-menu {
+  display: none !important;
+  position: absolute !important;
+  top: calc(100% + 0.65rem) !important;
+  left: -0.75rem !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  min-width: 180px;
+  margin: 0 !important;
+  padding: 0.45rem !important;
+  list-style: none !important;
+  background: var(--color-surface) !important;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
-  z-index: 60;
+  z-index: 100;
 }
-.shop-dropdown:hover .shop-dropdown-menu,
-.shop-dropdown:focus-within .shop-dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.nav-links-desktop > li.shop-dropdown:hover > .shop-dropdown-menu,
+.nav-links-desktop > li.shop-dropdown:focus-within > .shop-dropdown-menu {
+  display: flex !important;
 }
-.shop-dropdown-menu a {
+.dropdown-caret { font-size: 0.9em; margin-left: 0.15rem; }
+.shop-dropdown-menu > li { display: block; width: 100%; }
+.shop-dropdown-menu > li > a {
   display: block;
+  width: 100%;
   padding: 0.65rem 0.8rem;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--color-text-muted);
+  white-space: nowrap;
 }
-.shop-dropdown-menu a:hover,
-.shop-dropdown-menu a:focus-visible {
+.shop-dropdown-menu > li > a:hover,
+.shop-dropdown-menu > li > a:focus-visible {
   color: var(--color-primary);
   background: var(--color-primary-light);
 }
