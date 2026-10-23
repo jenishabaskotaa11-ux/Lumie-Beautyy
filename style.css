@@ -58,6 +58,79 @@
   --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+
+/* --- Dark / Light Theme --- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #171514;
+  --color-surface: #211e1c;
+  --color-surface-subtle: #282421;
+  --color-surface-hover: #332e2a;
+  --color-primary: #d39aad;
+  --color-primary-hover: #e2b2c2;
+  --color-primary-light: rgba(211, 154, 173, 0.13);
+  --color-primary-border: rgba(211, 154, 173, 0.28);
+  --color-secondary: #d9a6b7;
+  --color-secondary-light: #302329;
+  --color-text-main: #f4eee9;
+  --color-text-muted: #d0c5bd;
+  --color-text-subtle: #aa9d94;
+  --color-text-light: #958981;
+  --color-border: #403934;
+  --color-border-subtle: #302b27;
+  --color-dark: #0f0e0d;
+  --color-dark-surface: #211e1c;
+  --color-dark-border: #403934;
+  --color-success: #86d6a0;
+  --color-success-bg: #1d3024;
+  --color-warning: #f3c47b;
+  --color-warning-bg: #352b1b;
+  --color-danger: #ff9eaf;
+  --color-danger-bg: #382027;
+}
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .site-header,
+:root[data-theme="dark"] .mobile-nav-panel,
+:root[data-theme="dark"] .modal-window,
+:root[data-theme="dark"] .drawer-panel,
+:root[data-theme="dark"] .product-card,
+:root[data-theme="dark"] .category-card,
+:root[data-theme="dark"] .form-input,
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+}
+:root[data-theme="dark"] .site-header {
+  background-color: rgba(23, 21, 20, 0.96);
+}
+:root[data-theme="dark"] .site-footer {
+  background-color: #100f0e;
+}
+:root[data-theme="dark"] .announcement-bar {
+  background-color: #0d0c0b;
+}
+:root[data-theme="dark"] .btn-secondary,
+:root[data-theme="dark"] .icon-btn:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-main);
+}
+:root[data-theme="dark"] .product-card,
+:root[data-theme="dark"] .category-card,
+:root[data-theme="dark"] .modal-window,
+:root[data-theme="dark"] .drawer-panel {
+  border-color: var(--color-border);
+}
+:root[data-theme="dark"] .theme-toggle-btn {
+  border-color: var(--color-border);
+  background-color: var(--color-surface-subtle);
+}
+.theme-toggle-btn #theme-toggle-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
 /* --- Global Reset & Base Styles --- */
 *, *::before, *::after {
   box-sizing: border-box;
